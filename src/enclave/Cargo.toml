@@ -1,0 +1,38 @@
+[package]
+name = "SworkerEnclave"
+version = "1.0.0"
+authors = ["The Teaclave Authors"]
+
+[lib]
+name = "sworkerenclave"
+crate-type = ["staticlib"]
+
+[features]
+default = []
+
+[target.'cfg(not(target_env = "sgx"))'.dependencies]
+sgx_types = { git = "https://github.com/apache/teaclave-sgx-sdk.git" }
+sgx_tseal = { git = "https://github.com/apache/teaclave-sgx-sdk.git" }
+sgx_tcrypto = { git = "https://github.com/apache/teaclave-sgx-sdk.git" }
+sgx_tstd = { git = "https://github.com/apache/teaclave-sgx-sdk.git", features = ["untrusted_fs", "thread", "backtrace"] }
+sgx_rand = { git = "https://github.com/apache/teaclave-sgx-sdk.git" }
+sgx_libc = { git = "https://github.com/apache/teaclave-sgx-sdk.git" }
+lazy_static = { version = "1.1.0", features = ["spin_no_std"] }
+
+[patch.'https://github.com/apache/teaclave-sgx-sdk.git']
+sgx_alloc = { path = "/opt/intel/incubator-teaclave-sgx-sdk/sgx_alloc" }
+sgx_backtrace_sys = { path = "/opt/intel/incubator-teaclave-sgx-sdk/sgx_backtrace_sys" }
+sgx_build_helper = { path = "/opt/intel/incubator-teaclave-sgx-sdk/sgx_build_helper" }
+sgx_demangle = { path = "/opt/intel/incubator-teaclave-sgx-sdk/sgx_demangle" }
+sgx_libc = { path = "/opt/intel/incubator-teaclave-sgx-sdk/sgx_libc" }
+sgx_rand = { path = "/opt/intel/incubator-teaclave-sgx-sdk/sgx_rand" }
+sgx_tcrypto = { path = "/opt/intel/incubator-teaclave-sgx-sdk/sgx_tcrypto" }
+sgx_tprotected_fs = { path = "/opt/intel/incubator-teaclave-sgx-sdk/sgx_tprotected_fs" }
+sgx_trts = { path = "/opt/intel/incubator-teaclave-sgx-sdk/sgx_trts" }
+sgx_tse = { path = "/opt/intel/incubator-teaclave-sgx-sdk/sgx_tse" }
+sgx_tseal = { path = "/opt/intel/incubator-teaclave-sgx-sdk/sgx_tseal" }
+sgx_tstd = { path = "/opt/intel/incubator-teaclave-sgx-sdk/sgx_tstd" }
+sgx_types = { path = "/opt/intel/incubator-teaclave-sgx-sdk/sgx_types" }
+#sgx_ucrypto = { path = "/opt/intel/incubator-teaclave-sgx-sdk/sgx_ucrypto" }
+sgx_unwind = { path = "/opt/intel/incubator-teaclave-sgx-sdk/sgx_unwind" }
+#sgx_urts = { path = "/opt/intel/incubator-teaclave-sgx-sdk/sgx_urts" }

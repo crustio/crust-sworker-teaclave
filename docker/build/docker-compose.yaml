@@ -1,0 +1,10 @@
+version: '2.0'
+services:
+  crust-sworker-teaclave:
+    image: 'crustio/crust-sworker-teaclave:0.1.0'
+    network_mode: host
+    devices:
+      - '/dev/isgx:/dev/isgx'
+    volumes:
+      - '/opt/crust/data/srd:/opt/crust/data/srd'
+    container_name: crust-sworker-teaclave
