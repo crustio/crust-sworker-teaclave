@@ -43,6 +43,13 @@ if [ "$PUBLISH" -eq "1" ]; then
 fi
 
 cd $instdir
+if [ ! -e "incubator-teaclave-sgx-sdk" ]; then
+    git clone https://github.com/apache/incubator-teaclave-sgx-sdk.git
+    if [ $? -ne 0 ]; then
+        echo "[ERROR] Git clone rust sgx sdk failed!"
+        exit 1
+    fi
+fi
 if [ x"$SWORKER_MODE" != x"prod" ]; then
     SWORKER_MODE="dev"
 fi

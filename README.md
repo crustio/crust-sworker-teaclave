@@ -15,7 +15,7 @@
   * Ubuntu\* 18.04 LTS Server 64bits 
 
 - SGX Driver
-  [Intel SGX driver 2.9.1 for Linux](https://01.org/intel-software-guard-extensions/downloads) installed)]
+  * Install SGX driver[Intel SGX driver 2.9.1 for Linux](https://01.org/intel-software-guard-extensions/downloads)
 
 - Clone project
   ```
@@ -39,5 +39,5 @@ Please refer to [this page](https://github.com/apache/incubator-teaclave-sgx-sdk
     ```
 
 ### Run from source
-run '**sudo ./scripts/install.sh**', this command will install crust-sworker-teaclave to **/opt/crust/crust-sworker**
-run '**/opt/crust/crust-sworker/bin/crust-sworker-t**' to start crust-sworker
+run '**sudo ./scripts/install.sh**', this command will install crust-sworker-teaclave to **/opt/crust/crust-sworker**.
+Then run '**/opt/crust/crust-sworker/bin/crust-sworker-t**' to start crust-sworker
